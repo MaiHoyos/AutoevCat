@@ -79,12 +79,19 @@
 	<form>
     <table>
         <tr>
-            <td>Programa académico</td>
-            <td colspan="3"><select id="programa" name="programa">
-                <option value="LicenciaturaMatemáticas">Licenciatura en Matemáticas</option>
-                <option value="ingenieriaCivil">Ingeniería Civil</option>
-            </select></td>
-        </tr>
+	    <td>Unidad académica</td>
+	    <td colspan="3">
+	        <select id="programa" name="programa">
+	            <option value="FacultadCiencias">Facultad de Ciencias</option>
+	            <option value="FacultadCienciasHumanas">Facultad de Ciencias Humanas</option>
+	            <option value="FacultadIngenieriasFisicoquimicas">Facultad de Ingenierías Fisicoquímicas</option>
+	            <option value="FacultadIngenieriasFisicomecanicas">Facultad de Ingenierías Fisicomecánicas</option>
+	            <option value="FacultadSalud">Facultad de Salud</option>
+	            <option value="IPRED">IPRED</option>
+	        </select>
+	    </td>
+	</tr>
+
         <tr>
             <td>Nombre del curso:</td>
             <td><select id="Materia" name="Nombre del curso">
@@ -177,10 +184,9 @@
             <tr>
                 <th>Comentarios adicionales</th>
                 </tr>
-            <tr>
-                <td contenteditable="true"></td>
-                
-            </tr>
+            	<tr>
+       			 <td contenteditable="true" oninput="limitCharacters(this, 200)"></td>
+   		</tr>
             
         </table>
 
@@ -190,12 +196,19 @@
     </form>
 
     <script>
-        // Lógica para procesar el formulario (opcional)
+       
         document.getElementById('evaluation-form').addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Formulario enviado con éxito.');
-            // Aquí puedes agregar lógica para enviar los datos a un servidor o procesarlos como quieras.
+           
         });
+
+	    function limitCharacters(element, maxLength) {
+    if (element.innerText.length > maxLength) {
+        element.innerText = element.innerText.substring(0, maxLength);
+        alert("Se ha alcanzado el límite de " + maxLength + " caracteres.");
+    						}
+							}
     </script>
 </body>
 </html>
